@@ -1,6 +1,4 @@
 package TiposConta;
-
-
 import java.util.Scanner;
 
 
@@ -12,25 +10,16 @@ public abstract class ContaBancaria {
 
     public abstract void saque(double valor);
 
-
     public abstract void deposito(double valor);
-
 
     public abstract void extrato();
 
-
     public void alterarSenha(Scanner sc, String senha) {
-
-
-
-
         System.out.println("Digite a senha anterior: ");
         if (sc.nextLine().equals(this.senha)) {
             this.senha = senha;
         } else {
             System.out.println("Senha incorreta!");
         }
-
-
     }
 }

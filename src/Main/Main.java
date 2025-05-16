@@ -1,11 +1,8 @@
 package Main;
 
-
 import TiposConta.ContaBancaria;
 import TiposConta.ContaCorrente;
 import TiposConta.ContaEspecial;
-
-
 import java.util.Scanner;
 
 
@@ -13,27 +10,20 @@ public class Main {
     static Scanner sc = new Scanner(System.in);
     public static void main(String[] args) {
 
-
-
-
         System.out.print("Digite quantas contas deseja criar: ");
-
 
         ContaBancaria[] contas = new ContaBancaria[sc.nextInt()];
         sc.nextLine();
 
-
         criarContas(contas);
 
-
-        for (int i = 0; i < contas.length; i++) {
+       for (int i = 0; i < contas.length; i++) {
             usarConta(contas[i],i+1);
         }
 
 
         sc.close();
     }
-
 
     public static void usarConta(ContaBancaria conta,int i) {
         int opcao=0;
@@ -44,7 +34,6 @@ public class Main {
                     +                   "3- Ver Extrato\n"
                     +                   "4- Alterar Senha\n"
                     +                   "5- Sair\n");
-
 
             opcao = sc.nextInt();
             sc.nextLine();
@@ -69,7 +58,6 @@ public class Main {
 
 
                     conta.alterarSenha(sc,sc.nextLine());
-                    //sc.nextLine();
                     continue;
                 case 5: break;
                 default:
@@ -80,7 +68,6 @@ public class Main {
             }
         }
     }
-
 
     public static void criarContas(ContaBancaria[] contas) {
         int opcao=0;
@@ -111,7 +98,6 @@ public class Main {
         }
     }
 
-
     public static ContaEspecial criarContaEspecial() {
         String senha;
         double limite;
@@ -122,15 +108,11 @@ public class Main {
         System.out.println("Digite seu limite: ");
         limite = sc.nextDouble();
 
-
         sc.nextLine();
         return new ContaEspecial(senha, limite);
     }
 
-
     public static ContaCorrente criarContaCorrente() {
-
-
         System.out.println("Digite a senha da conta: ");
         return new ContaCorrente(sc.nextLine());
     }
