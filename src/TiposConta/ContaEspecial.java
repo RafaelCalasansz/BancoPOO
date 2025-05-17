@@ -11,25 +11,28 @@ public class ContaEspecial extends ContaCorrente{
 
     @Override
     public void saque(double valor) {
-
-        if (valor <= saldo+limite) {
-            if (valor>saldo) {
-                limite-=(valor-saldo);
-                saldo=0;
-            } else {
-                saldo-=valor;
-            }
-        } else {
-            System.out.println("Saldo insuficiente");
+        if (valor <= 0) {
+            System.out.println("Valor inválido para saque.");
+            return;
         }
 
+        if (valor > saldo + limite) {
+            System.out.println("Limite insuficiente!");
+            return;
+        }
+
+        if (valor > saldo) {
+            limite -= (valor - saldo);
+        }
+
+        saldo -= valor;
         qntdTransacoes++;
     }
 
     @Override
     public void extrato() {
         super.extrato();
-        System.out.println("limite: " + limite);
-        System.out.println("Saldo total: " + (saldo+limite));
+        System.out.println("Limite: " + limite);
+        System.out.print("Saldo total: " + (saldo+limite));
     }
 }
